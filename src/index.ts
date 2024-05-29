@@ -10,8 +10,8 @@ app.get('/', async (req, res) => {
   res.send('test')
 })
 
-app.get('/scraper', async (req, res) => {
-  const browser = await chromium.launch({ headless: false })  
+app.get('/portfolio-assets', async (_, res) => {
+  const browser = await chromium.launch()  
   const page = await browser.newPage()
 
   try {
@@ -35,10 +35,13 @@ app.get('/scraper', async (req, res) => {
     res.json(assets)
   } catch (e) {
     if (e instanceof errors.TimeoutError) {
-      res.json({ name: e.name, message: e.message })
+      res
+        .status(408)
+        .set('Connection', 'close')
+        .json({ name: e.name, message: e.message })
     }
 
-    res.json({ 
+    res.status(500).json({
       name: 'Uncaught exception',
       message: 'An unhandled exception was thrown in the page'
     })
