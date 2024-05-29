@@ -1,6 +1,6 @@
 import { Page } from "playwright";
 
-export const getAssets = async (page: Page) => {
+export const getPortfolioAssets = async (page: Page) => {
   const tickers = await page.locator(".stock-link label").allInnerTexts();
   const values = await page
     .locator("[data-field=subTotalTitulo]")
