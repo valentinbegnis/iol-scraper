@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { chromium, errors } from "playwright";
+import { chromium, errors } from "playwright-chromium";
 import { getPortfolioAssets as getAssets } from "../services/portfolio.service";
 import { IOL_PORTFOLIO_URL } from "../constants";
 

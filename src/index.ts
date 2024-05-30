@@ -10,6 +10,4 @@ app.get("/", async (_, res) => {
 
 app.use("/portfolio", portfolioRouter);
 
-app.listen(PORT, () =>
-  console.log(`Server running on port http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

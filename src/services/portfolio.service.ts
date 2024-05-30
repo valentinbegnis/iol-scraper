@@ -1,4 +1,4 @@
-import { Page } from "playwright";
+import { Page } from "playwright-chromium";
 
 export const getPortfolioAssets = async (page: Page) => {
   const tickers = await page.locator(".stock-link label").allInnerTexts();
