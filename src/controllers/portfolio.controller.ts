@@ -4,7 +4,7 @@ import { getPortfolioAssets as getAssets } from "../services/portfolio.service";
 import { IOL_PORTFOLIO_URL } from "../constants";
 
 export const getPortfolioAssets = async (_: Request, res: Response) => {
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch();
   const page = await browser.newPage();
 
   try {
